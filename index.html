@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#4A0072">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KC-Wear</title>
+  <link rel="stylesheet" href="comerce.css">
+</head>
+<body>
+
+  <main>
+    <!-- Home -->
+    <div id="home" class="tela ativa">
+      <div class="entrada">
+        <h1>KC Wear</h1>
+        <img src="Moda2.jpg" alt="imagem" />
+        <p>Seu estilo. Seu jeito</p>
+        <button id="entrar" onclick="trocartela('categorias')">
+          Ver produtos <span>&#10140;</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Categorias -->
+    <div id="categorias" class="tela">
+      <div class="categorias-container" id="lista-categorias">
+      
+
+      </div>
+    </div>
+
+    <!-- Produtos -->
+<div id="camisetas" class="produto">
+  <button class="fechar" onclick="mostrarprodutos('categorias')">&lt; sair</button> <div class="produto-wrapper">
+  <div class="container-produto" id="lista-camisetas"></div></div>
+</div>
+
+<div id="calcas" class="produto">
+  <button class="fechar" onclick="mostrarprodutos('categorias')">&lt; sair</button>
+   <div class="produto-wrapper">
+  <div class="container-produto" id="lista-calcas"></div></div>
+</div>
+
+    <!-- Detalhe do produto -->
+    <div id="detalhe-produto" class="produto">
+<button class="fechar" onclick="voltarParaCategoria()">&lt; voltar</button>
+      <img id="img" src="">
+      <h2 id="detalhe"></h2>
+      <p id="descricao"></p>
+      <span id="preco"></span>
+      <div class="alinar">
+      <button type="button" class="calcular"onclick="calcular('soma')">+</button>
+      <p id="quantidade"></p>
+      <button type="button" class="calcular" onclick="calcular('menos')">-</button>
+            </div>
+            <p id="total-produt"></p>
+  <button type="button" class="Adicio"onclick="adicionarCarrinho()">Adicionar ao carrinho</button>
+
+    </div>
+    <div id="carrinho" class="tela">
+    
+    <div class="organiza">
+<ol class="carrinho-de-produtos">
+    
+</ol>
+   <p id="totalgeral"></p>
+   <button id="enviar-whatsapp" onclick="enviarWhatsApp()">Enviar pedido pelo WhatsApp</button>
+    </div>
+
+</div>
+
+  </main>
+
+  <nav id="menu">
+    <button onclick="mostrarElemento('home')">Home</button>
+    <button onclick="mostrarElemento('categorias')">Categorias</button>
+    <button onclick="mostrarElemento('carrinho')">Carrinho</button>
+  </nav>
+  <footer></footer>
+  <script src="comerce.js"></script>
+</body>
+</html>

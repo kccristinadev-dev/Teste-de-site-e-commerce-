@@ -1,0 +1,342 @@
+
+body {
+    font-size: 100%;
+    margin: 0;
+}
+main {
+  position: relative;
+  overflow: hidden; /* esconde telas que estão fora */
+}
+.tela {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    transform: translateX(100%);
+    transition: transform 0.8s ease;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+}
+.tela.ativa{
+    
+        transform: translateX(0);
+}
+
+/*home*/
+#home.tela.ativa{
+background: linear-gradient(to bottom, rgb(31, 43, 61), #92ACFF);
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+        justify-content: flex-start;
+    align-items: center;
+    padding: 0.5rem;
+
+}
+#categorias.tela.ativa{
+    display: flex;
+}
+
+.entrada {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 12px;
+    width: 260px;
+    background: #F0F3FA;
+    box-shadow: 0 10px 30px rgba(0,0,0,.1);
+    position: relative; /* necessário para ajustar imagem */
+}
+
+.entrada img {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    margin-left: 160px; /* empurra a imagem para a direita sem sair do card */
+    border-radius: 12px;
+}
+
+
+
+.entrada h1{
+  font-size: 2.2rem;
+  font-family: Georgia, serif;
+  font-weight: bold;
+  color: #0E0929;
+}
+
+.entrada p{
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+
+#entrar{
+  -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  border: none;
+  background: none;
+  font-weight: bold;
+      color: #0E0929;
+      cursor: pointer;
+
+}
+#entrar span{
+    font-weight: 600;
+    transform: translateX(-10px);
+    transition: transform .3s ease;
+}
+#entrar:hover span {
+    transform: translateX(8px);
+}
+
+
+
+/*categorias*/
+.categorias-container {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 15px;
+    padding: 40px 20px; /* padding geral */
+    padding-left: 1rem; /* espaço da borda esquerda */
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+.categorias-container::-webkit-scrollbar {
+    display: none;
+}
+
+.categoria {
+    flex: 0 0 auto;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    gap: 5px;
+    background-color: #F0F3FA;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: visible;
+}
+
+/* dá uma leve margem pro primeiro card sem precisar de margin-left absurda */
+.categoria:first-child {
+    margin-left: 10px;
+}
+
+.categoria img {
+    height: 150px;
+    width: 150px;
+    border-radius: 20px;
+    transform: translateY(-40px);
+}
+
+.categoria:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+/*produtos*/
+
+.produto {
+  position: fixed;
+  width: 100%;
+  background: #fff;
+  display: none;
+  flex-direction: column;
+}
+
+.produto.ativa {
+  display: flex;
+}
+
+/* A CAIXA QUE SALVA VIDAS */
+.produto-wrapper {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 90px; /* menu */
+    overflow-y: auto;
+
+}
+
+/* AGORA SIM */
+.container-produto {
+   height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+margin-bottom: 250px; /* menu */
+  justify-content: center;
+    overflow-y: auto;
+
+}
+.fechar {
+    -webkit-tap-highlight-color: transparent;
+  align-self: flex-start;
+  margin: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.produtos img {
+    width: 100%;
+    max-height: 120px;
+
+}
+.produtos {
+  -webkit-tap-highlight-color: transparent;
+  flex: 1 1 160px;
+  max-width: 150px;
+  padding: 5px;
+  gap: 5px;
+  display: flex;
+}
+.produtos .conteudo {
+  padding: 20px 20px;
+  display: flex;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  max-height: 200px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+#detalhe-produto {
+  bottom: -100%;
+  height: 75vh;
+  align-items: center;
+    transform: translateY(-20px);
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -10px 30px rgba(0,0,0,.2);
+  padding-bottom: 1rem;
+  overflow-y: auto;
+  transition: bottom .3s ease;
+  transition: transform 0.3s ease;
+}
+
+#detalhe-produto.ativa {
+  bottom: 20px;
+ display: flex;
+  flex-direction: column;
+}
+
+#detalhe-produto img{
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+}
+.Adicio{
+    width: 100%;
+    padding: 20px;
+    border: none;
+    border-radius: 6px;
+    background-color: #0000FF;
+    color: #fff;
+}
+#carrinho.tela.ativa {
+    height: 100vh;
+    width: 100%;
+    background-color: #F0F8FF;
+}
+#menu {
+    position: fixed;
+    -webkit-tap-highlight-color: transparent;
+    bottom: 0;
+    left: 0;
+   display: flex; 
+width: 100%;
+min-height: 40px;
+justify-content: space-around;
+background: #F0F3FA;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+  z-index: 999;
+}
+#menu button {
+    background-color: none;
+    border: none;
+    border-radius: 8px;
+    padding: 20px 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.organiza{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.alinar {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.calcular {
+    border: none;
+    border-radius: 100%;
+    padding: 10px 15px;
+}
+.carrinho-de-produtos {
+    height: 40vh;
+    overflow-y: auto;
+}
+.carrinho-de-produtos li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.carrinho-de-produtos button {
+  background: #FF4D4D;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+}
+#totalgeral {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: right;
+  margin-top: 10px;
+}
+#enviar-whatsapp {
+  width: 100%;
+  padding: 15px;
+  background: #25D366;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+@media (min-width: 768px){
+  #home{
+    justify-content: flex-start;
+    padding-left: 5vw;
+  }
+}
